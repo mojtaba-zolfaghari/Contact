@@ -14,9 +14,7 @@ namespace Contact.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IContactService _contactService;
-
-        public HomeController(ILogger<HomeController> logger, IContactService contactService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
 
@@ -25,14 +23,7 @@ namespace Contact.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            try
-            {
                 return View();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
 
 

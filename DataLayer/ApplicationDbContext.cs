@@ -24,6 +24,8 @@ namespace DataLayer
             builder.ApplyConfiguration(new Entities.Config.User.UserProfileMap());
         }
         public DbSet<Entities.Contact> Contacts { get; set; }
+        public  DbSet<Entities.User> Users { get; set; }
+        public  DbSet<Entities.UserProfile> UserProfiles { get; set; }
 
 
 

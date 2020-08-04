@@ -15,6 +15,7 @@ using Services.Contracts;
 using Services;
 using DataLayer;
 using Contact.Controllers;
+using Services.Implementation;
 
 namespace Contact
 {
@@ -50,6 +51,9 @@ namespace Contact
 
 
             services.AddScoped<IContactService, ContactService>();
+            services.AddScoped(typeof(IserviceRepository<>), typeof(ServiceRepository<>));
+            services.AddTransient<IUserService, UserService>();
+            //services.AddTransient<IUserProfileService, UserProfileService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
