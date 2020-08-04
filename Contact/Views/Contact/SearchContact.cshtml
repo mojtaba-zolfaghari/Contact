@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Entities.Contact>
+
+@{
+    ViewData["Title"] = "SearchContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>نتایج جستجو</h1>
+
+
+<table class="table table-striped table-valign-middle">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomePhone)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/lib/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomePhone)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">جزئیات</a> 
+
+                </td>
+            </tr>
+        }
+
+</tbody>
+</table>
