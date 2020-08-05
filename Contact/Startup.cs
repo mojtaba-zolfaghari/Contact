@@ -50,13 +50,15 @@ namespace Contact
             });
 
 
+
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped(typeof(IserviceRepository<>), typeof(ServiceRepository<>));
             services.AddTransient<IUserService, UserService>();
             //services.AddTransient<IUserProfileService, UserProfileService>();
-
+            services.AddMvc().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
